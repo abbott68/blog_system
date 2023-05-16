@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>博客系统</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>欢迎访问博客系统</h1>
+
+<ul>
+  {{ range .Articles }}
+  <li>
+    <a href="/articles/{{ .ID }}">{{ .Title }}</a>
+  </li>
+  {{ end }}
+</ul>
+</body>
+</html>
