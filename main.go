@@ -62,8 +62,8 @@ func authenticateUser(username, password string) bool {
 
 func registerRoutes(router *gin.Engine) {
 	// 注册路由处理函数
-	router.GET("/", homeHandler)
-	router.GET("/articles/:id", articleHandler)
+	//router.GET("/", homeHandler)
+	//router.GET("/articles/:id", articleHandler)
 	router.POST("/articles", createArticleHandler)
 	// 其他路由...
 	//登陆路由
@@ -74,27 +74,27 @@ func registerRoutes(router *gin.Engine) {
 	router.LoadHTMLGlob("templates/*.html")
 }
 
-func homeHandler(c *gin.Context) {
-	articles := []Article{
-		ID:    1,
-		Title: "文章1",
-		ID:    2,
-		Title: "文章2",
-	}
-
-	c.HTML(http.StatusOK, "home.html", gin.H{
-		"Articles": articles,
-	})
-}
-func articleHandler(c *gin.Context) {
-	articleID := c.Param("id")
-	// 根据文章ID获取文章信息
-	article := Article{
-		ID:      articleID,
-		Title:   "示例文章",
-		Content: "这是一个示例文章的内容。",
-	}
-}
+//func homeHandler(c *gin.Context) {
+//	articles := []Article{
+//		ID:    1,
+//		Title: "文章1",
+//		ID:    2,
+//		Title: "文章2",
+//	}
+//
+//	c.HTML(http.StatusOK, "home.html", gin.H{
+//		"Articles": articles,
+//	})
+//}
+//func articleHandler(c *gin.Context) {
+//	articleID := c.Param("id")
+//	// 根据文章ID获取文章信息
+//	article := Article{
+//		ID:      articleID,
+//		Title:   "示例文章",
+//		Content: "这是一个示例文章的内容。",
+//	}
+//}
 
 func createArticleHandler(c *gin.Context) {
 	// 获取请求参数并创建文章
